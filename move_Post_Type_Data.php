@@ -3,16 +3,16 @@
 
 function move_single_post_type_a_to_b() {
     $args = array(
-
-        // POST TYPE ASAL
-        'post_type' => 'hb_room', //slug / key post type asal
-        'posts_per_page' => -1, // Ambil semua data post type asal
-        'post_status' => 'any', // Ambil semua status posting publish, draft, private dll
+        
+        // initial post type ==================== //
+        'post_type' => 'post_type_key', 
+        'posts_per_page' => -1, 
+        'post_status' => 'any', 
         'tax_query' => array(
             array(
-                'taxonomy' => 'hb_room_type', //slug taxonomy
+                'taxonomy' => 'taxonomy_key', 
                 'field' => 'slug',
-                'terms' => 'non-pool' //slug kategori 
+                'terms' => 'category_key'
             )
         )
     );
@@ -24,7 +24,7 @@ function move_single_post_type_a_to_b() {
             $query->the_post();
             $post_id = get_the_ID();
 
-            // POST TYPE TUJUAN
+            // destination post type ==================== //
             wp_update_post(array(
                 'ID' => $post_id,
                 'post_type' => 'sewa-villa'
