@@ -3,7 +3,7 @@
 
 function move_single_post_type_a_to_b() {
     $args = array(
-        
+
         // initial post type ==================== //
         'post_type' => 'post_type_key', 
         'posts_per_page' => -1, 
@@ -27,7 +27,7 @@ function move_single_post_type_a_to_b() {
             // destination post type ==================== //
             wp_update_post(array(
                 'ID' => $post_id,
-                'post_type' => 'sewa-villa'
+                'post_type' => 'post_type_key'
             ));
         }
     }
